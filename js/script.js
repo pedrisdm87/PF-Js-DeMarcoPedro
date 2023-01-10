@@ -30,7 +30,8 @@ cantidadProductos=Number(prompt("Ingrese cantidad de productos"))
 
 for (let i= 0; i<cantidadProductos; i++) {
     let producto=prompt("ingrese el NOMBRE del producto o ESC para CANCELAR")
-    if (producto=="ESC") {
+    let up = producto.toUpperCase()
+    if (up=="ESC") {
     break
     }
     let valor=Number(prompt("ingrese el VALOR del producto"))
