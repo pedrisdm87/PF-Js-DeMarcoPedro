@@ -12,38 +12,52 @@ function agregaIva(total,iva){
     return (total * iva)
 }
 
+//SALUDO
 
+function saludo()
+    console.log("Hola, bienvenido al Carrito de compras")
 
+//LOGIN
 
-console.log("Hola, bienvenido al Carrito de compras");
-
-usuario = prompt("Ingrese su nombre de Usuario")
+function login(){
+    usuario = prompt("Ingrese su nombre de Usuario")
 console.log("Usuario INGRESADO:"+" "+usuario)
 
 if(usuario == ""){
     alert("INGRESE UN USUARIO VALIDO")
-}else{
-    alert("USUARIO INGRESADO:"+" "+usuario)
 }
-
-cantidadProductos=Number(prompt("Ingrese cantidad de productos"))
-
-for (let i= 0; i<cantidadProductos; i++) {
-    let producto=prompt("ingrese el NOMBRE del producto o ESC para CANCELAR")
-    let up = producto.toUpperCase()
-    if (up=="ESC") {
-    break
-    }
-    let valor=Number(prompt("ingrese el VALOR del producto"))
-    total=total+valor
-    listaDeProductos=listaDeProductos +" "+ producto + ","
-
 }
 
 
+//COMPRA
+
+function compra (){
+
+    cantidadProductos=Number(prompt("Ingrese cantidad de productos"))
+
+    for (let i= 0; i<cantidadProductos; i++) {
+        let producto=prompt(`ingrese el NOMBRE del producto ${i} o ESC para CANCELAR`)
+        let up = producto.toUpperCase()
+        if (up=="ESC") {
+        break
+        }
+        let valor=Number(prompt(`ingrese el VALOR del producto ${i+1}`))
+        total=total+valor
+        listaDeProductos=listaDeProductos +" "+ producto + ","
+        }
+}
+
+//INFORME
+function informes(){
 
 console.log("Los productos comprados por el usuario :" + usuario + " fueron: ", listaDeProductos)
 console.log("El monto total sin IVA es ", total) 
 console.log("El Total con IVA es: ", agregaIva(total,iva))
 
+}
 
+
+saludo()
+login()
+compra()
+informes()
