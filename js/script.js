@@ -1,6 +1,6 @@
 let nombre = "";
 let cantidadProductos=0
-let listaDeProductos=" "
+
 let total=0
 let iva=1.21
 let valor=0
