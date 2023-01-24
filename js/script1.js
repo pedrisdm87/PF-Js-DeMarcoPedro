@@ -2,6 +2,7 @@ let valorProducto= 0
 let nombreProducto= ""
 let total=0
 let iva=1.21
+let lista=""
 
 //IVA
 function agregaIva(total,iva){
@@ -40,6 +41,7 @@ class Productos {
 //DECLARACION DE ARRAY VACIA
 
 const productos = [];
+const productosComprados= [];
 
 
 // FUNCION COMPRA
@@ -49,13 +51,14 @@ function compra (){
     cantidadProductos=Number(prompt("Ingrese cantidad de productos"))
 
     for (let i= 0; i<cantidadProductos; i++) {
-        nombreProducto=prompt(`Ingrese el NOMBRE del Producto ${i+1}`)
+        nombreProducto=prompt(`Ingrese el NOMBRE del Producto ${i+1} o ESC para CANCELAR`)
+        if (nombreProducto== "esc"|| "ESC") {
+            break
+        }
         valorProducto=Number(prompt(`Ingrese el VALOR del producto ${i+1}`))
         total=valorProducto+total
         productos.push(new Productos(nombreProducto,valorProducto));
-        
     }
-    
 }
 
 
@@ -71,8 +74,9 @@ informes()
 
 function informes(){
 
-
+    Productos.forEach((nombreProducto) => console.log(nombreProducto));
     console.log("El monto total sin IVA es ", total) 
     console.log("El Total con IVA es: ", agregaIva(total,iva))
-    }
+    
+}
 
