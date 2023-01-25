@@ -82,10 +82,10 @@ function informes(){
 
     console.log("El monto total sin IVA es ", total) 
     console.log("El Total con IVA es: ", agregaIva(total,iva))
-    productos.forEach((productos) => console.log("los productos comprados por "+ usuario +" son: " + (productos.nombreProducto)));
+    productos.forEach((productos) => console.log("Productos comprados: " + (productos.nombreProducto)));
 }
 
-let buscar = prompt("que producto desea buscar?")
+let buscar = prompt("Que producto desea buscar?")
 
 const resultado = productos.find((producto) => producto.nombreProducto === buscar)
 
