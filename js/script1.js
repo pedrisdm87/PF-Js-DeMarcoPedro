@@ -1,109 +1,122 @@
-let valorProducto= 0
-let nombreProducto= ""
-let total=0
-let totalIva=0
-let lista=""
-
-//IVA
-function agregaIva(total,iva){
-    
-    return (total * iva)
-}
-
-//SALUDO
-
-function saludo(){
-    console.log("Hola, bienvenido al Carrito de compras")
-    }
-
-//LOGIN
-
-function login(){
-    usuario = prompt("Ingrese su nombre de Usuario")
-    
-    if(usuario == ""){
-        alert("INGRESE UN USUARIO VALIDO")
-    }
-    return console.log("Usuario INGRESADO:"+" "+usuario)
-    
-    }
 
 //CONSTRUCTOR PRODUCTO
 
-class Productos {
-    constructor(nombreProducto, valorProducto) {
-        this.nombreProducto = nombreProducto;
-        this.valorProducto = parseFloat(valorProducto);
+class Producto {
+    constructor(id, nombre, precio, cantidad, imagen) {
+      this.id = id;
+      this.nombre = nombre;
+      this.precio = precio;
+      this.cantidad = cantidad;
+      this.imagen = imagen;
     }
+  }
+
+
+//CREO LOS PRODUCTOS Y LOS ALMACENO EN UN ARRAY
+
+const producto1 = new Producto(1, 'Tubo', 300000, 1,'../img/tubo.webp');
+const producto2 = new Producto(2, 'Controladora', 220000, 1, '../img/controladora.jpg');
+const producto3 = new Producto(3, 'Lente', 15000, 1, '../img/lente.jpg');
+const producto4 = new Producto(4, 'Fuente', 125, 1,'../img/fuente.webp');
+
+const productos = [producto1, producto2, producto3, producto4];
+
+//MUESTRO LOS PRODUCTOS MODIFICANDO EL DOM
+
+const contenedorProductos = document.getElementById('contenedorProductos');
+
+productos.forEach((producto) => {
+  const divProducto = document.createElement('div');
+  divProducto.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
+  divProducto.innerHTML = `
+                          <div>
+                              <img src="${producto.imagen}.jpg" class="card-img-top img-fluid py-3">
+                              <div class="card-body">
+                                  <h3 class="card-title"> ${producto.nombre} </h3>
+                                  <p class="card-text"> ${producto.precio} </p>
+                                  <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
+                              </div>
+                          </div>`;
+  contenedorProductos.appendChild(divProducto);
+
+
+  //Evento del Boton de agregar al carrito:
+
+  const boton = document.getElementById(`boton${producto.id}`);
+  boton.addEventListener('click', () => {
+    agregarAlCarrito(producto.id);
+  });
+});
+
+//Carrito de compras y una función que busque el producto por id y lo agregue al carrito.
+
+const carrito = [];
+
+const agregarAlCarrito = (id) => {
+  const producto = productos.find((producto) => producto.id === id);
+  const productoEnCarrito = carrito.find((producto) => producto.id === id);
+  if (productoEnCarrito) {
+    productoEnCarrito.cantidad++;
+  } else {
+    carrito.push(producto);
+  }
+  actualizarCarrito();
+};
+
+//Veo el carrito de compras modificando el DOM.
+
+const contenedorCarrito = document.getElementById('contenedorCarrito');
+const verCarrito = document.getElementById('verCarrito');
+
+verCarrito.addEventListener('click', actualizarCarrito);
+
+function actualizarCarrito() {
+  let aux = '';
+  carrito.forEach((producto) => {
+    aux += `
+              <div class="card col-xl-3 col-md-6 col-sm-12">
+                  <img src="img/${producto.id}.jpg" class="card-img-top img-fluid py-3">
+                  <div class="card-body">
+                      <h3 class="card-title"> ${producto.nombre} </h3>
+                      <p class="card-text"> ${producto.precio} </p>
+                      <button onClick = "eliminarDelCarrito(${producto.id})" class="btn btn-primary"> Eliminar del Carrito </button>
+                  </div>
+              </div>
+              `;
+  });
+
+  contenedorCarrito.innerHTML = aux;
+  calcularTotalCompra();
 }
+//Función que elimine el producto del carrito:
+
+const eliminarDelCarrito = (id) => {
+    const producto = carrito.find((producto) => producto.id === id);
+    carrito.splice(carrito.indexOf(producto), 1);
+    actualizarCarrito();
+  };
+  
 
 
-//DECLARACION DE ARRAY VACIA
+//Función para vaciar el carrito:
 
-const productos = [];
-
-
-
-// FUNCION COMPRA
-
-function compra (){
-
-    cantidadProductos=Number(prompt("Ingrese cantidad de productos"))
-
-    for (let i= 0; i<cantidadProductos; i++) {
-        nombreProducto=prompt(`Ingrese el NOMBRE del Producto ${i+1} o ESC para CANCELAR`)
-        if (nombreProducto == "esc" || nombreProducto == "ESC") {
-        break
-        }
-        valorProducto=Number(prompt(`Ingrese el VALOR del producto ${i+1}`))
-        productos.push(new Productos(nombreProducto,valorProducto));
-        total = productos.reduce((acc, value) => acc + value.valorProducto, 0)
-    }
-}
+const vaciarCarrito = document.getElementById('vaciarCarrito');
+vaciarCarrito.addEventListener('click', () => {
+  carrito.splice(0, carrito.length);
+  actualizarCarrito();
+});
 
 
 
-//INFORME
+//funcion para calcular el total del carrito:
 
-function informes(){
+const totalCompra = document.getElementById('totalCompra');
 
-    console.log("El monto total sin IVA es ", total) 
-    console.log("El Total con IVA es: ", totalIva = productos.reduce((acc, value) => acc + value.valorProducto * 1.21, 0))
-    productos.forEach((productos) => console.log("Productos comprados: " + (productos.nombreProducto)));
-}
+const calcularTotalCompra = () => {
+  let total = 0;
+  carrito.forEach((producto) => {
+    total += producto.precio * producto.cantidad;
+  });
+  totalCompra.innerHTML = total;
+};
 
-
-// BUSCAR PRODUCTO
-
-function buscarProducto(){
-    let buscar = prompt("Que producto desea buscar?")
-	const resultado = productos.find((producto) => producto.nombreProducto === buscar)
-    console.log(resultado)
-
-}   
-
-//ELIMINAR PRODUCTO
-
-function eliminarProd(id,nombre){
-    resultado = prompt("Que producto desea ELIMINAR?")
-	resultado = productos.filter(producto => nombreProducto != nombre)
-	resultado = productos.filter(producto => producto.id != id)
-}
-
-//MUESTRA LISTA DE PRODUCTOS
-
-
-
-
-saludo()
-login()
-compra()
-informes()
-buscarProducto()
-//eliminarProd()
-
-
-
-let div = document.getElementById("prueba") 
-console.log(div)
-div.innerHTML= productos.map(productos => `<h3>${nombreProducto}</h3>`)
