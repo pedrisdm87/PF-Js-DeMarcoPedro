@@ -1,4 +1,23 @@
 
+//SALUDO
+
+function saludo(){
+    console.log("Hola, bienvenido al Carrito de compras")
+    }
+
+//LOGIN
+
+function login(){
+    usuario = prompt("Ingrese su nombre de Usuario")
+    if(usuario == ""){
+        alert("INGRESE UN USUARIO VALIDO")
+    }
+    return console.log("Usuario INGRESADO:"+" "+usuario)
+    }
+
+
+
+
 //CONSTRUCTOR PRODUCTO
 
 class Producto {
@@ -55,12 +74,14 @@ const carrito = [];
 const agregarAlCarrito = (id) => {
   const producto = productos.find((producto) => producto.id === id);
   const productoEnCarrito = carrito.find((producto) => producto.id === id);
+  
   if (productoEnCarrito) {
     productoEnCarrito.cantidad++;
   } else {
     carrito.push(producto);
   }
   actualizarCarrito();
+  
 };
 
 //Veo el carrito de compras modificando el DOM.
@@ -120,3 +141,9 @@ const calcularTotalCompra = () => {
   totalCompra.innerHTML = total;
 };
 
+
+saludo()
+login()
+
+localStorage.setItem("nombreUsuario",usuario)
+localStorage.setItem("carrito", agregarAlCarrito)
