@@ -1,7 +1,7 @@
 let valorProducto= 0
 let nombreProducto= ""
 let total=0
-let iva=1.21
+let totalIva=0
 let lista=""
 
 //IVA
@@ -57,22 +57,9 @@ function compra (){
         }
         valorProducto=Number(prompt(`Ingrese el VALOR del producto ${i+1}`))
         productos.push(new Productos(nombreProducto,valorProducto));
-
-        total=valorProducto+total
+        total = productos.reduce((acc, value) => acc + value.valorProducto, 0)
     }
 }
-
-
-
-
-
-
-saludo()
-login()
-compra()
-informes()
-
-
 
 
 
@@ -81,12 +68,42 @@ informes()
 function informes(){
 
     console.log("El monto total sin IVA es ", total) 
-    console.log("El Total con IVA es: ", agregaIva(total,iva))
+    console.log("El Total con IVA es: ", totalIva = productos.reduce((acc, value) => acc + value.valorProducto * 1.21, 0))
     productos.forEach((productos) => console.log("Productos comprados: " + (productos.nombreProducto)));
 }
 
-let buscar = prompt("Que producto desea buscar?")
 
-const resultado = productos.find((producto) => producto.nombreProducto === buscar)
+// BUSCAR PRODUCTO
 
-console.log(resultado)
+function buscarProducto(){
+    let buscar = prompt("Que producto desea buscar?")
+	const resultado = productos.find((producto) => producto.nombreProducto === buscar)
+    console.log(resultado)
+
+}   
+
+//ELIMINAR PRODUCTO
+
+function eliminarProd(id,nombre){
+    resultado = prompt("Que producto desea ELIMINAR?")
+	resultado = productos.filter(producto => nombreProducto != nombre)
+	resultado = productos.filter(producto => producto.id != id)
+}
+
+//MUESTRA LISTA DE PRODUCTOS
+
+
+
+
+saludo()
+login()
+compra()
+informes()
+buscarProducto()
+//eliminarProd()
+
+
+
+let div = document.getElementById("prueba") 
+console.log(div)
+div.innerHTML= productos.map(productos => `<h3>${nombreProducto}</h3>`)
