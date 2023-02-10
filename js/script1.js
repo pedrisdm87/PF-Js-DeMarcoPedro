@@ -14,10 +14,10 @@ class Producto {
 
 //CREO LOS PRODUCTOS Y LOS ALMACENO EN UN ARRAY
 
-const producto1 = new Producto(1, 'Tubo', 300000, 1,'../img/tubo.webp');
-const producto2 = new Producto(2, 'Controladora', 220000, 1, '../img/controladora.jpg');
-const producto3 = new Producto(3, 'Lente', 15000, 1, '../img/lente.jpg');
-const producto4 = new Producto(4, 'Fuente', 125, 1,'../img/fuente.webp');
+const producto1 = new Producto(1, 'Tubo', 300000, 1,'img/tubo.webp');
+const producto2 = new Producto(2, 'Controladora', 220000, 1, 'img/controladora.jpg');
+const producto3 = new Producto(3, 'Lente', 15000, 1, 'img/lente.jpg');
+const producto4 = new Producto(4, 'Fuente', 125, 1,'img/fuente.webp');
 
 const productos = [producto1, producto2, producto3, producto4];
 
@@ -30,7 +30,7 @@ productos.forEach((producto) => {
   divProducto.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
   divProducto.innerHTML = `
                           <div>
-                              <img src="${producto.imagen}.jpg" class="card-img-top img-fluid py-3">
+                              <img src="${producto.imagen}" class="card-img-top img-fluid py-3"> 
                               <div class="card-body">
                                   <h3 class="card-title"> ${producto.nombre} </h3>
                                   <p class="card-text"> ${producto.precio} </p>
@@ -75,7 +75,7 @@ function actualizarCarrito() {
   carrito.forEach((producto) => {
     aux += `
               <div class="card col-xl-3 col-md-6 col-sm-12">
-                  <img src="img/${producto.id}.jpg" class="card-img-top img-fluid py-3">
+                  <img src="${producto.imagen}"  class="card-img-top img-fluid py-3">
                   <div class="card-body">
                       <h3 class="card-title"> ${producto.nombre} </h3>
                       <p class="card-text"> ${producto.precio} </p>
