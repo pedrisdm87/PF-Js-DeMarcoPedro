@@ -104,6 +104,7 @@ function actualizarCarrito() {
                   </div>
               </div>
               `;
+              localStorage.setItem("carrito", JSON.stringify(carrito))
   });
 
   contenedorCarrito.innerHTML = aux;
@@ -114,7 +115,9 @@ function actualizarCarrito() {
 const eliminarDelCarrito = (id) => {
     const producto = carrito.find((producto) => producto.id === id);
     carrito.splice(carrito.indexOf(producto), 1);
+    localStorage.setItem("carrito", JSON.stringify(carrito))
     actualizarCarrito();
+    localStorage.setItem("carrito", JSON.stringify(carrito))
   };
   
 
@@ -124,7 +127,9 @@ const eliminarDelCarrito = (id) => {
 const vaciarCarrito = document.getElementById('vaciarCarrito');
 vaciarCarrito.addEventListener('click', () => {
   carrito.splice(0, carrito.length);
+  localStorage.setItem("carrito", JSON.stringify(carrito))
   actualizarCarrito();
+  
 });
 
 
@@ -146,4 +151,4 @@ saludo()
 login()
 
 localStorage.setItem("nombreUsuario",usuario)
-localStorage.setItem("carrito", agregarAlCarrito)
+
