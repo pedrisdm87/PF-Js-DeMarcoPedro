@@ -9,16 +9,29 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous"/>
+      <link rel="stylesheet" href="css/styles.css">
   </head>
   <body class="container">
     <h1>Tienda</h1>
-    <h2>Stock de Productos:</h2>
+
+  
+    <h2>Inicio de sesión</h2>
+    <form>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+    
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+    
+      <button type="submit">Iniciar Sesion</button>
+    </form>
+
+    <h2>Productos:</h2>
     <div class="row" id="contenedorProductos"></div>
 
     <h2>Carrito de Compras:</h2>
-    <button class="btn btn-primary" id="verCarrito">Ver Carrito</button>
+    
     <button class="btn btn-primary" id="vaciarCarrito">Vaciar Carrito</button>
 
     <h3>Total de la compra: <span id="totalCompra">0</span></h3>

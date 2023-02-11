@@ -45,4 +45,37 @@
     font-size: 1.5rem;
   }
 
+  form {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
   

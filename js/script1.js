@@ -1,19 +1,20 @@
+//INICIO DE SESION:
 
-//SALUDO
 
-function saludo(){
-    console.log("Hola, bienvenido al Carrito de compras")
-    }
+document.querySelector("form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-//LOGIN
+  const username = document.querySelector("#username").value;
+  const password = document.querySelector("#password").value;
 
-function login(){
-    usuario = prompt("Ingrese su nombre de Usuario")
-    if(usuario == ""){
-        alert("INGRESE UN USUARIO VALIDO")
-    }
-    return console.log("Usuario INGRESADO:"+" "+usuario)
-    }
+  // Almacenar los datos de inicio de sesión en el localStorage
+  localStorage.setItem("username", username);
+  localStorage.setItem("password", password);
+});
+
+// Recuperar datos de inicio de sesion:
+
+const userNameGuardado = console.log("Usuario: " + localStorage.getItem("username"));
 
 
 
@@ -87,9 +88,8 @@ const agregarAlCarrito = (id) => {
 //Veo el carrito de compras modificando el DOM.
 
 const contenedorCarrito = document.getElementById('contenedorCarrito');
-const verCarrito = document.getElementById('verCarrito');
 
-verCarrito.addEventListener('click', actualizarCarrito);
+
 
 function actualizarCarrito() {
   let aux = '';
@@ -104,7 +104,7 @@ function actualizarCarrito() {
                   </div>
               </div>
               `;
-              localStorage.setItem("carrito", JSON.stringify(carrito))
+              localStorage.setItem("carrito", JSON.stringify(carrito)) //ALMACENO EL CARRITO ACTUALIZADO
   });
 
   contenedorCarrito.innerHTML = aux;
@@ -146,9 +146,4 @@ const calcularTotalCompra = () => {
   totalCompra.innerHTML = total;
 };
 
-
-saludo()
-login()
-
-localStorage.setItem("nombreUsuario",usuario)
 
