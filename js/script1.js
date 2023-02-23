@@ -95,6 +95,12 @@ const pedirProd = async ()  => {
                               </div>
                           </div>`;
   contenedorProductos.appendChild(divProducto);
+  const boton = document.getElementById(`boton${producto.id}`);
+  boton.addEventListener('click', () => {
+    agregarAlCarrito(producto.id);
+    console.log("carrito agregado")
+
+  }); 
 }
 
 )
@@ -105,11 +111,7 @@ const pedirProd = async ()  => {
 
    //Evento del Boton de agregar al carrito:
 
-  const boton = document.getElementById(`boton${producto.id}`);
-  boton.addEventListener('click', () => {
-    agregarAlCarrito(producto.id);
-    console.log("carrito agregado")
-  }); 
+  
 
 
 //Carrito de compras y una función que busque el producto por id y lo agregue al carrito.
@@ -117,8 +119,8 @@ const pedirProd = async ()  => {
 const carrito = [];
 
 const agregarAlCarrito = (id) => {
-  const producto = productos.find((producto) => producto.id === id);
-  const productoEnCarrito = carrito.find((producto) => producto.id === id);
+  const producto = productos.find((producto) => producto.id == id);
+  const productoEnCarrito = carrito.find((producto) => producto.id == id);
   
   if (productoEnCarrito) {
     productoEnCarrito.cantidad++;
