@@ -34,7 +34,7 @@ class Producto {
 
 //CREO LOS PRODUCTOS Y LOS ALMACENO EN UN ARRAY
 
-/* const producto1 = new Producto(1, 'Tubo 100W', 300000, 1,'img/tubo.webp');
+const producto1 = new Producto(1, 'Tubo 100W', 300000, 1,'img/tubo.webp');
 const producto2 = new Producto(2, 'Controladora 6445', 220000, 1, 'img/controladora.jpg');
 const producto3 = new Producto(3, 'Lente D.Focal 101mm', 15000, 1, 'img/lente.jpg');
 const producto4 = new Producto(4, 'Fuente 100w', 185000, 1,'img/fuente.webp');
@@ -57,26 +57,32 @@ const producto20 = new Producto(20, 'Lente D.Focal 30mm', 15000, 1, 'img/lente.j
 
 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20];
- */
+
 
 
 //OBTENGO LOS DATOS DESDE JSON
 
+const url = "./public/data.json"
+
 const getDatos = async()=> {
-  const resp = await fetch('data.json')
-  .then((response) => response.json())
-  .then((data) => console.log(data));
+  const resp = await fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        return data;
+      })
+      return resp
   }
- 
-const productosjson = getDatos()
-console.log (productosjson)
+   
+  
 
 
 //MUESTRO LOS PRODUCTOS MODIFICANDO EL DOM
 
 let contenedorProductos = document.getElementById('contenedorProductos');
-/* 
-productosjson.forEach((producto) => {
+
+const pedirProd = async ()  => { 
+  const productosjson = await getDatos()
+  productosjson.forEach((producto) => {
   const divProducto = document.createElement('div');
   divProducto.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
   divProducto.innerHTML = `
@@ -88,15 +94,22 @@ productosjson.forEach((producto) => {
                                   <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
                               </div>
                           </div>`;
-  contenedorProductos.appendChild(divProducto); */
+  contenedorProductos.appendChild(divProducto);
+}
+
+)
+}
+ pedirProd()
 
 
-  //Evento del Boton de agregar al carrito:
+
+   //Evento del Boton de agregar al carrito:
 
   const boton = document.getElementById(`boton${producto.id}`);
   boton.addEventListener('click', () => {
     agregarAlCarrito(producto.id);
-  });
+    console.log("carrito agregado")
+  }); 
 
 
 //Carrito de compras y una función que busque el producto por id y lo agregue al carrito.

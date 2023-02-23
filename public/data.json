@@ -1,0 +1,165 @@
+[
+    
+    {
+        "nombre": "producto1",
+        "id":"1",
+        "detalle":"Tubo 100W",
+        "precio":"300000",
+        "cantidad":"1",
+        "imagen": "img/tubo.webp"
+    },
+    
+    {
+        "nombre": "producto2",
+        "id":"2",
+        "detalle":"Controladora 6445",
+        "precio":"220000",
+        "cantidad":"1",
+        "imagen": "img/controladora.jpg"
+    },
+    {
+        "nombre": "producto3",
+        "id":"3",
+        "detalle":"Lente D.Focal 101mm",
+        "precio":"15000",
+        "cantidad":"1",
+        "imagen": "img/lente.jpg"
+    },
+    {
+        "nombre": "producto4",
+        "id":"4",
+        "detalle":"Fuente 100w",
+        "precio":"185000",
+        "cantidad":"1",
+        "imagen": "img/fuente.webp"
+    },
+    {
+        "nombre": "producto5",
+        "id":"5",
+        "detalle":"Tubo 90W",
+        "precio":"200000",
+        "cantidad":"1",
+        "imagen": "img/tubo.webp"
+    },
+    {
+        "nombre": "producto6",
+        "id":"6",
+        "detalle":"Controladora 6442",
+        "precio":"220000",
+        "cantidad":"1",
+        "imagen": "img/controladora 2.jpg"
+    },
+    {
+        "nombre": "producto7",
+        "id":"7",
+        "detalle":"Lente D.Focal 76mm",
+        "precio":"15000",
+        "cantidad":"1",
+        "imagen": "img/lente.jpg"
+    },
+    {
+        "nombre": "producto8",
+        "id":"8",
+        "detalle":"Fuente 90w",
+        "precio":"150000",
+        "cantidad":"1",
+        "imagen": "img/fuente.webp"
+    },
+    {
+        "nombre": "producto9",
+        "id":"9",
+        "detalle":"Tubo 80W",
+        "precio":"180000",
+        "cantidad":"1",
+        "imagen": "img/tubo.webp"
+    },
+    {
+        "nombre": "producto10",
+        "id":"10",
+        "detalle":"Puntero Láser",
+        "precio":"5000",
+        "cantidad":"1",
+        "imagen": "img/puntero.jpg"
+    },
+    {
+        "nombre": "producto11",
+        "id":"11",
+        "detalle":"Lente D.Focal 63mm",
+        "precio":"15000",
+        "cantidad":"1",
+        "imagen": "img/lente.jpg"
+    },
+    {
+        "nombre": "producto12",
+        "id":"12",
+        "detalle":"Fuente 80w",
+        "precio":"125000",
+        "cantidad":"1",
+        "imagen": "img/fuente.webp"
+    },
+    {
+        "nombre": "producto13",
+        "id":"13",
+        "detalle":"Fuente 50w",
+        "precio":"75000",
+        "cantidad":"1",
+        "imagen": "img/fuente.webp"
+    },
+    {
+        "nombre": "producto14",
+        "id":"14",
+        "detalle":"Tubo 65W",
+        "precio":"110000",
+        "cantidad":"1",
+        "imagen": "img/tubo.webp"
+    },
+    {
+        "nombre": "producto15",
+        "id":"15",
+        "detalle":"Correa 3M",
+        "precio":"3500",
+        "cantidad":"1",
+        "imagen": "img/correa.webp"
+    },
+    {
+        "nombre": "producto16",
+        "id":"16",
+        "detalle":"Lente D.Focal 50mm",
+        "precio":"15000",
+        "cantidad":"1",
+        "imagen": "img/lente.jpg"
+    },
+    {
+        "nombre": "producto17",
+        "id":"17",
+        "detalle":"Fuente 65w",
+        "precio":"80000",
+        "cantidad":"1",
+        "imagen": "img/fuente.webp"
+    },
+    {
+        "nombre": "producto18",
+        "id":"18",
+        "detalle":"Tubo 50W",
+        "precio":"70000",
+        "cantidad":"1",
+        "imagen": "img/tubo.webp"
+    },
+    {
+        "nombre": "producto19",
+        "id":"19",
+        "detalle":"Polea",
+        "precio":"4000",
+        "cantidad":"1",
+        "imagen": "img/polea.jpg"
+    },
+    {
+        "nombre": "producto20",
+        "id":"20",
+        "detalle":"Lente D.Focal 30mm",
+        "precio":"15000",
+        "cantidad":"1",
+        "imagen": "img/lente.jpg"
+    }
+
+]
