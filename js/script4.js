@@ -20,8 +20,8 @@ const pedirProd = async () => {
         divProducto.classList.add(
           "card",
           "col-xl-3",
-          "col-md-6",
-          "col-md-12"
+          "col-xl-3",
+          "col-xl-3",
         );
         divProducto.innerHTML += `<div>
                 <img src="${producto.imagen}" class="card-img-top img-fluid py-3">
@@ -100,3 +100,11 @@ const mostrarCarrito = () => {
 
 
 pedirProd();
+
+
+
+/* CARRITO */
+const cartIcon = document.querySelector('.iconoCarrito');
+
+cartIcon.innerHTML = '<i class="fa fa-shopping-cart"></i>';
+

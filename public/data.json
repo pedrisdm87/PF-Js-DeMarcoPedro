@@ -20,7 +20,7 @@
     {
         "nombre": "producto3",
         "id":"3",
-        "detalle":"Lente D.Focal 101mm",
+        "detalle":"Lente D.Foc. 101mm",
         "precio":"15000",
         "cantidad":"1",
         "imagen": "img/lente.jpg"
@@ -52,7 +52,7 @@
     {
         "nombre": "producto7",
         "id":"7",
-        "detalle":"Lente D.Focal 76mm",
+        "detalle":"Lente D..76mm",
         "precio":"15000",
         "cantidad":"1",
         "imagen": "img/lente.jpg"
@@ -84,7 +84,7 @@
     {
         "nombre": "producto11",
         "id":"11",
-        "detalle":"Lente D.Focal 63mm",
+        "detalle":"Lente D..63mm",
         "precio":"15000",
         "cantidad":"1",
         "imagen": "img/lente.jpg"
@@ -124,7 +124,7 @@
     {
         "nombre": "producto16",
         "id":"16",
-        "detalle":"Lente D.Focal 50mm",
+        "detalle":"Lente D..50mm",
         "precio":"15000",
         "cantidad":"1",
         "imagen": "img/lente.jpg"
@@ -156,7 +156,7 @@
     {
         "nombre": "producto20",
         "id":"20",
-        "detalle":"Lente D.Focal 30mm",
+        "detalle":"Lente D..30mm",
         "precio":"15000",
         "cantidad":"1",
         "imagen": "img/lente.jpg"

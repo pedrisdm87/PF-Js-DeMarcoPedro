@@ -69,13 +69,23 @@ button:hover {
   background-color: #ef8354;
 }
 
-div
-
-{
+div{
   gap: 50px;
     justify-content: space-between;
   align-items: center;
-  padding:2rem,
  
+}
+
+div.card.col-xl-3 {
+  gap: 20px;
+  align-items: center;
+  width: 20rem;
+  height: 35rem;
+  box-shadow: #2d3142 0 0 60px;
+}
+
+img.card-img-top{
+  width: 400px;
+  height: 400px;
 }
 
