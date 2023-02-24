@@ -6,7 +6,7 @@ let contenedorProductos = document.getElementById("contenedorProductos");
 let datos = [];
 let totalCompra = 0;
 
-
+document.body.style.backgroundColor = '#bfc0c0';
 
 
 
@@ -79,16 +79,23 @@ const mostrarCarrito = () => {
         mensaje += `Total de la compra: $${totalCompra}`;
     }
     swal("Carrito de compras", mensaje, "success", {
-        button: "Cerrar",
-        footer: '<button id="vaciarCarrito" class="btn btn-danger">Vaciar Carrito</button>'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            const vaciarCarrito= document.getElementById("vaciarCarrito");
-            vaciarCarrito.addEventListener("click", vaciarCarrito);
-        }
-    });
-};
+        buttons: "Cerrar",
+    })
+    }
+    
 
+
+
+
+    const eliminarDatoBtn = document.getElementById('eliminarDato');
+
+    eliminarDatoBtn.addEventListener('click', function() {
+      // obtener el valor del dato que se desea eliminar
+      const carrito = 'carrito'; // Aquí debes definir el valor del dato que se desea eliminar
+    
+      // eliminar el dato del localStorage
+      localStorage.removeItem(carrito);
+    });
 
 
 

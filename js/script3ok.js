@@ -6,7 +6,7 @@ let contenedorProductos = document.getElementById("contenedorProductos");
 let datos = [];
 let totalCompra = 0;
 
-
+document.body.style.backgroundColor = '#bfc0c0';
 
 
 
@@ -26,8 +26,8 @@ const pedirProd = async () => {
         divProducto.innerHTML += `<div>
                 <img src="${producto.imagen}" class="card-img-top img-fluid py-3">
                 <div class="card-body">
-                 <h2 class="card-title">${producto.detalle}</h2>
-                 <h3 class="card-text"> Precio: $ ${producto.precio} </h3>
+                 <h3 class="card-title">${producto.detalle}</h3>
+                 <h4 class="card-text"> Precio: $ ${producto.precio} </h4>
                  <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
                 </div>
             <div>`;
@@ -79,16 +79,23 @@ const mostrarCarrito = () => {
         mensaje += `Total de la compra: $${totalCompra}`;
     }
     swal("Carrito de compras", mensaje, "success", {
-        button: "Cerrar",
-        footer: '<button id="vaciarCarritoBtn" class="btn btn-danger">Vaciar Carrito</button>'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            const vaciarCarritoBtn = document.getElementById("vaciarCarritoBtn");
-            vaciarCarritoBtn.addEventListener("click", vaciarCarrito);
-        }
-    });
-};
+        buttons: "Cerrar",
+    })
+    }
+    
 
+
+
+
+    const eliminarDatoBtn = document.getElementById('eliminarDato');
+
+    eliminarDatoBtn.addEventListener('click', function() {
+      // obtener el valor del dato que se desea eliminar
+      const carrito = 'carrito'; // Aquí debes definir el valor del dato que se desea eliminar
+    
+      // eliminar el dato del localStorage
+      localStorage.removeItem(carrito);
+    });
 
 
 
