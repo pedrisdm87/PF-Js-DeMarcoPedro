@@ -16,6 +16,26 @@ document.querySelector("form").addEventListener("submit", function(event) {
   
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
+
+ // Validación de campos vacíos
+ if (!username || !password) {
+    swal("","Por favor complete todos los campos", "error");
+    return;
+  }
+
+  // Validación de longitud de contraseña
+  if (password.length < 8) {
+    swal("","La contraseña debe tener al menos 8 caracteres","error");
+    return;
+  }
+
+  // Validación de caracteres especiales en username
+  const regex = /^[a-zA-Z0-9]+$/;
+  if (!regex.test(username)) {
+    alert("","El nombre de usuario solo puede contener letras y números","error");
+    return;
+  }
+
   
     // Almacenar los datos de inicio de sesión en el localStorage
     localStorage.setItem("username", username);
@@ -120,8 +140,15 @@ pedirProd();
 
 
 
-/* CARRITO */
-const cartIcon = document.querySelector('.iconoCarrito');
-
-cartIcon.innerHTML = '<i class="fa fa-shopping-cart"></i>';
-
+/* // vaciar carrito
+function vaciarCarrito() {
+    carrito.productos = [];
+    
+    carrito.guardarLocalStorage();
+    Swal.fire({
+        confirmButtonColor: "#74C69D",
+        title: "Carrito vaciado con éxito!"
+    })
+    modal.style.display = "none";
+}
+document.getElementById("vaciar-carrito").addEventListener("click", vaciarCarrito); */
