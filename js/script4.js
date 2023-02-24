@@ -8,7 +8,24 @@ let totalCompra = 0;
 
 document.body.style.backgroundColor = '#bfc0c0';
 
+//INICIO DE SESION:
 
+
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+  
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
+  
+    // Almacenar los datos de inicio de sesión en el localStorage
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+  });
+  
+  // Recuperar datos de inicio de sesion:
+  
+  const userNameGuardado = console.log("Usuario: " + localStorage.getItem("username"));
+  
 
 const pedirProd = async () => {
   fetch(listadoDeProductos)
