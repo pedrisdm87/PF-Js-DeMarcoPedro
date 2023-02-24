@@ -67,24 +67,6 @@ const boton = document.getElementById(`boton${producto.id}`);
   }
   )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
 const agregarAlCarrito = (id) => {
     const producto = datos.find(producto => producto.id == id);
     carrito.push(producto);
@@ -97,25 +79,3 @@ const agregarAlCarrito = (id) => {
 
 
 
-
-function actualizarCarrito() {
-  let aux = '';
-  carrito.forEach((producto) => {
-    aux += `
-                  <div class="card col-xl-3 col-md-6 col-sm-12">
-                  <img src="${producto.imagen}"  class="card-img-top img-fluid py-3">
-                  <h2>  </h2>
-                  <div class="card-body">
-                      <h3 class="card-title"> ${producto.nombre} </h3>
-                      <p class="card-text"> ${producto.precio} </p>
-                      <button onClick = "eliminarDelCarrito(${producto.id})" class="btn btn-primary"> Eliminar del Carrito </button>
-                  </div>
-              </div>
-              `;
-              localStorage.setItem("carrito", JSON.stringify(carrito)) //ALMACENO EL CARRITO ACTUALIZADO
-  });
-
-  contenedorCarrito.innerHTML = aux;
-  calcularTotalCompra();
-}
-  */

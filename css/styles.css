@@ -42,8 +42,20 @@
   
   h1 {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 5rem;
+    color:#555;
+    text-align: center;
+    margin-bottom: 2.5rem;
   }
+
+  h2 {
+    font-weight: bold;
+    font-size: 3rem;
+    color:#555;
+    text-align: center;
+    margin: 4rem;
+  }
+
 
   form {
     width: 500px;
@@ -52,6 +64,7 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    font-size: 2rem;
   }
   
   label {
@@ -83,6 +96,9 @@ button:hover {
 }
 
 div{
-  margin: 10px
+  margin: 10px;
+    justify-content: space-between;
+  align-items: center;
+
 }
 
