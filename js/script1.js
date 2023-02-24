@@ -32,7 +32,7 @@ class Producto {
   }
 
 
-//CREO LOS PRODUCTOS Y LOS ALMACENO EN UN ARRAY
+/* //CREO LOS PRODUCTOS Y LOS ALMACENO EN UN ARRAY
 
 const producto1 = new Producto(1, 'Tubo 100W', 300000, 1,'img/tubo.webp');
 const producto2 = new Producto(2, 'Controladora 6445', 220000, 1, 'img/controladora.jpg');
@@ -57,10 +57,10 @@ const producto20 = new Producto(20, 'Lente D.Focal 30mm', 15000, 1, 'img/lente.j
 
 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20];
+ */
 
 
 
-//OBTENGO LOS DATOS DESDE JSON
 
 const url = "./public/data.json"
 
@@ -89,39 +89,38 @@ const pedirProd = async ()  => {
                           <div>
                               <img src="${producto.imagen}" class="card-img-top img-fluid py-3"> 
                               <div class="card-body">
-                                  <h3 class="card-title"> ${producto.nombre} </h3>
+                                  <h4 class="card-title"> ${producto.detalle} </h4>
                                   <p class="card-text"> $ ${producto.precio} </p>
                                   <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
                               </div>
                           </div>`;
   contenedorProductos.appendChild(divProducto);
-  const boton = document.getElementById(`boton${producto.id}`);
-  boton.addEventListener('click', () => {
-    agregarAlCarrito(producto.id);
-    console.log("carrito agregado")
+ 
 
   }); 
 }
 
-)
-}
  pedirProd()
 
 
 
    //Evento del Boton de agregar al carrito:
 
-  
-
+   const boton = document.getElementById(`boton${producto.id}`);
+  boton.addEventListener('click', () => {
+    agregarAlCarrito(producto.id);
+    console.log("carrito agregado")
+  }
+  )
 
 //Carrito de compras y una función que busque el producto por id y lo agregue al carrito.
 
 const carrito = [];
 
 const agregarAlCarrito = (id) => {
-  const producto = productos.find((producto) => producto.id == id);
+  const producto = producto.find((producto) => producto.id == id);
   const productoEnCarrito = carrito.find((producto) => producto.id == id);
-  
+  swal("Agregado!", "Su producto fue agregado al carrito", "success");
   if (productoEnCarrito) {
     productoEnCarrito.cantidad++;
   } else {
@@ -165,6 +164,7 @@ const eliminarDelCarrito = (id) => {
     localStorage.setItem("carrito", JSON.stringify(carrito))
     actualizarCarrito();
     localStorage.setItem("carrito", JSON.stringify(carrito))
+    
   };
   
 

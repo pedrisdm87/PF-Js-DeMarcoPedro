@@ -81,3 +81,8 @@ button:hover {
   cursor: pointer;
   background-color: lightpink;
 }
+
+div{
+  margin: 10px
+}
+
