@@ -8,7 +8,44 @@ let totalCompra = 0;
 
 document.body.style.backgroundColor = '#bfc0c0';
 
+//INICIO DE SESION:
 
+
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+  
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
+
+ // Validación de campos vacíos
+ if (!username || !password) {
+    swal("","Por favor complete todos los campos", "error");
+    return;
+  }
+
+  // Validación de longitud de contraseña
+  if (password.length < 8) {
+    swal("","La contraseña debe tener al menos 8 caracteres","error");
+    return;
+  }
+
+  // Validación de caracteres especiales en username
+  const regex = /^[a-zA-Z0-9]+$/;
+  if (!regex.test(username)) {
+    alert("","El nombre de usuario solo puede contener letras y números","error");
+    return;
+  }
+
+  
+    // Almacenar los datos de inicio de sesión en el localStorage
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+  });
+  
+  // Recuperar datos de inicio de sesion:
+  
+  const userNameGuardado = console.log("Usuario: " + localStorage.getItem("username"));
+  
 
 const pedirProd = async () => {
   fetch(listadoDeProductos)
@@ -20,8 +57,8 @@ const pedirProd = async () => {
         divProducto.classList.add(
           "card",
           "col-xl-3",
-          "col-md-6",
-          "col-md-12"
+          "col-xl-3",
+          "col-xl-3",
         );
         divProducto.innerHTML += `<div>
                 <img src="${producto.imagen}" class="card-img-top img-fluid py-3">

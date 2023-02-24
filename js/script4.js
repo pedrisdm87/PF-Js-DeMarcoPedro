@@ -32,7 +32,7 @@ document.querySelector("form").addEventListener("submit", function(event) {
   // Validación de caracteres especiales en username
   const regex = /^[a-zA-Z0-9]+$/;
   if (!regex.test(username)) {
-    alert("","El nombre de usuario solo puede contener letras y números","error");
+    swal("","El nombre de usuario solo puede contener letras y números","error");
     return;
   }
 
@@ -52,6 +52,7 @@ const pedirProd = async () => {
     .then((respuesta) => respuesta.json())
     .then((data) => {
       datos = data;
+      
       data.forEach((producto) => {
         const divProducto = document.createElement("div");
         divProducto.classList.add(
@@ -128,10 +129,10 @@ const mostrarCarrito = () => {
 
     eliminarDatoBtn.addEventListener('click', function() {
       // obtener el valor del dato que se desea eliminar
-      const carrito = 'carrito'; // Aquí debes definir el valor del dato que se desea eliminar
+      const carritoGuardado = 0; // Aquí debes definir el valor del dato que se desea eliminar
     
       // eliminar el dato del localStorage
-      localStorage.removeItem(carrito);
+      localStorage.removeItem(carritoGuardado);
     });
 
 
@@ -140,9 +141,9 @@ pedirProd();
 
 
 
-/* // vaciar carrito
+// vaciar carrito
 function vaciarCarrito() {
-    carrito.productos = [];
+    datos = [];
     
     carrito.guardarLocalStorage();
     Swal.fire({
@@ -151,4 +152,4 @@ function vaciarCarrito() {
     })
     modal.style.display = "none";
 }
-document.getElementById("vaciar-carrito").addEventListener("click", vaciarCarrito); */
+document.getElementById("vaciar-carrito").addEventListener("click", vaciarCarrito);
