@@ -57,6 +57,15 @@ fetch(listadoDeProductos)
 }
 
 pedirProd()
+/* 
+------------------------------------------------------------------ */
+
+const boton = document.getElementById(`boton${producto.id}`);
+  boton.addEventListener('click', () => {
+    agregarAlCarrito(producto.id);
+    console.log("carrito agregado")
+  }
+  )
 
 
 
@@ -69,7 +78,27 @@ pedirProd()
 
 
 
-/* function actualizarCarrito() {
+
+
+
+
+
+
+/* 
+const agregarAlCarrito = (id) => {
+    const producto = datos.find(producto => producto.id == id);
+    carrito.push(producto);
+    mostrarCarrito();
+  };
+  
+  
+
+
+
+
+
+
+function actualizarCarrito() {
   let aux = '';
   carrito.forEach((producto) => {
     aux += `
@@ -89,4 +118,4 @@ pedirProd()
   contenedorCarrito.innerHTML = aux;
   calcularTotalCompra();
 }
- */ 
+  */
