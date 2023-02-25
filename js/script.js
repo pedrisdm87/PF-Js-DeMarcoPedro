@@ -107,33 +107,33 @@ const agregarAlCarrito = (id) => {
 
 
 const mostrarCarrito = () => {
-    let mensaje = "El carrito está vacío.";
-    if (carrito.length > 0) {
-        mensaje = "Productos en el carrito:\n\n";
-        carrito.forEach((producto) => {
-            mensaje += `${producto.detalle} - Precio: $${producto.precio}\n`;
-        });
-        mensaje += `Total de la compra: $${totalCompra}`;
-    }
-    swal("Carrito de compras", mensaje, "success", {
-        buttons: "Cerrar",
-    })
-    }
-    
+  let mensaje = "El carrito está vacío.";
+  if (carrito.length > 0) {
+      mensaje = "Productos en el carrito:\n\n";
+      carrito.forEach((producto) => {
+          mensaje += `${producto.detalle} - Precio: $${producto.precio}\n`;
+      });
+      const precioCompraTotal = carrito
+        .map((producto) => Number(producto.precio))
+        .reduce((sumaParcial, precio) => sumaParcial + precio);
+      mensaje += `Total de la compra: $${precioCompraTotal}`;
+  }
+  swal("Carrito de compras", mensaje, "success", {
+      buttons: "Cerrar",
+  })
+}
 
+const eliminarDatoBtn = document.getElementById('vaciarCarrito');
 
+eliminarDatoBtn.addEventListener('click', function() {
+  // eliminar el dato del localStorage
+  localStorage.removeItem('carrito');
+  carrito = []
+  mostrarCarrito()
+});
+const mostrarCarritoBtn = document.getElementById('mostrarCarrito');
 
-
-    const eliminarDatoBtn = document.getElementById('eliminarDato');
-
-    eliminarDatoBtn.addEventListener('click', function() {
-      // obtener el valor del dato que se desea eliminar
-      const carrito = 'carrito'; // Aquí debes definir el valor del dato que se desea eliminar
-    
-      // eliminar el dato del localStorage
-      localStorage.removeItem(carrito);
-    });
-
+mostrarCarritoBtn.addEventListener('click', mostrarCarrito);
 
 
 pedirProd();

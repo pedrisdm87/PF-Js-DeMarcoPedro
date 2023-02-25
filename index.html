@@ -12,10 +12,15 @@
       crossorigin="anonymous"/>
       <link rel="stylesheet" href="css/styles.css">
       <script src="node_modules\sweetalert2\dist\sweetalert2.js"></script>
-      <script src="js/script3ok.js" defer></script>
+      <script src="js/script.js" defer></script>
 
   </head>
+
+
+
   <body class="container">
+    
+    <main>
     <h1>Tienda de repuestos</h1>
 
   
@@ -29,22 +34,20 @@
     
       <button type="submit">Iniciar Sesion</button>
     </form>
+  </main>
 
+    <section>
     <h2>Productos:</h2>
     <div class="row container" id="contenedorProductos"></div>
 
     
-    
-    <button class="btn btn-primary" id="eliminarDato">eliminarDato</button>
+    <button class="btn btn-primary" id="mostrarCarrito">Mostrar Carrito</button>
+    <button class="btn btn-primary" id="vaciarCarrito">Vaciar Carrito</button>
 
     
     <div class="row py-3" id="vaciarCarrito"></div>
-
     
-    
-    
-
-
+  </section>
 
 
     <script
@@ -53,5 +56,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
   </body>
 </html>
