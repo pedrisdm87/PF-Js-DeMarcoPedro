@@ -89,3 +89,53 @@ img.card-img-top{
   height: 400px;
 }
 
+.buscador{
+  margin: 10rem;
+  display: flex;
+  
+}
+
+#mostrarCarrito  {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #4f5275;
+  border-radius: 10px;
+  color: #ffffff;
+  border: none;
+  margin: 2rem;
+}
+
+#vaciarCarrito  {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #4f5275;
+  border-radius: 10px;
+  color: #ffffff;
+  border: none;
+  margin: 2rem;
+}
+
+#ordenAlfabetico{
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #4f5275;
+  border-radius: 10px;
+  color: #ffffff;
+  border: none;
+  margin: 2rem;
+}
+
+#ordenPrecio{
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #4f5275;
+  border-radius: 10px;
+  color: #ffffff;
+  border: none;
+  margin: 2rem;
+}
+
+.botones{
+  display: flex;
+  margin-bottom: 5rem;
+}

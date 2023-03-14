@@ -11,9 +11,6 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"/>
       <link rel="stylesheet" href="css/styles.css">
-      <script src="node_modules\sweetalert2\dist\sweetalert2.js"></script>
-      <script src="js/script.js" defer></script>
-
   </head>
 
 
@@ -36,26 +33,45 @@
     </form>
   </main>
 
-    <section>
-    <h2>Productos:</h2>
-    <div class="row container" id="contenedorProductos"></div>
+  <section>
+  
+    <div id="listado" class="buscador">
+      <input type="text" id="busqueda" placeholder="Buscar producto...">
+      <button id="buscarBtn">Buscar</button>
+    </div>
+  
+    <div class="botones">
+      <button id="ordenAlfabetico" class="btn btn-primary">Ordenar por orden alfabético</button>
+      <button id="ordenPrecio" class="btn btn-primary">Ordenar por precio</button>
 
-    
-    <button class="btn btn-primary" id="mostrarCarrito">Mostrar Carrito</button>
-    <button class="btn btn-primary" id="vaciarCarrito">Vaciar Carrito</button>
+      <button class="btn btn-primary boton" id="mostrarCarrito" class>Mostrar Carrito</button>
+      <button class="btn btn-primary" id="vaciarCarrito">Vaciar Carrito</button>
+    </div>
 
-    
-    <div class="row py-3" id="vaciarCarrito"></div>
-    
   </section>
 
+    <section>
+        <div class="row container" id="contenedorProductos"></div>
+    </section>
+    
 
-    <script
+
+
+
+
+
+    <script src="node_modules\sweetalert2\dist\sweetalert2.js"></script>
+    <script 
+    src="js/script.js">
+    </script>
+
+<script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      crossorigin="anonymous">
+</script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
   </body>
 </html>

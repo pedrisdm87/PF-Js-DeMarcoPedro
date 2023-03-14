@@ -32,7 +32,7 @@ document.querySelector("form").addEventListener("submit", function(event) {
   // Validación de caracteres especiales en username
   const regex = /^[a-zA-Z0-9]+$/;
   if (!regex.test(username)) {
-    alert("","El nombre de usuario solo puede contener letras y números","error");
+    swal("","El nombre de usuario solo puede contener letras y números","error");
     return;
   }
 
@@ -42,9 +42,9 @@ document.querySelector("form").addEventListener("submit", function(event) {
     localStorage.setItem("password", password);
   });
   
-  // Recuperar datos de inicio de sesion:
+  /* // Recuperar datos de inicio de sesion:
   
-  const userNameGuardado = console.log("Usuario: " + localStorage.getItem("username"));
+  const userNameGuardado = console.log("Usuario: " + localStorage.getItem("username")); */
   
 
 const pedirProd = async () => {
@@ -137,3 +137,87 @@ mostrarCarritoBtn.addEventListener('click', mostrarCarrito);
 
 
 pedirProd();
+
+
+/*-----------------------------------------------*/
+
+const buscarBtn = document.getElementById("buscarBtn");
+buscarBtn.addEventListener("click", () => {
+  const busqueda = document.getElementById("busqueda").value;
+  const resultados = datos.filter((producto) =>
+    producto.detalle.toLowerCase().includes(busqueda.toLowerCase())
+  );
+  mostrarResultados(resultados);
+});
+
+
+const mostrarResultados = (resultados) => {
+  contenedorProductos.innerHTML = "";
+  if (resultados.length > 0) {
+    resultados.forEach((producto) => {
+      const divProducto = document.createElement("div");
+      divProducto.classList.add(
+        "card",
+        "col-xl-3",
+        "col-xl-3",
+        "col-xl-3"
+      );
+      divProducto.innerHTML += `<div>
+                <img src="${producto.imagen}" class="card-img-top img-fluid py-3">
+                <div class="card-body">
+                 <h3 class="card-title">${producto.detalle}</h3>
+                 <h4 class="card-text"> Precio: $ ${producto.precio} </h4>
+                 <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
+                </div>
+            <div>`;
+      contenedorProductos.appendChild(divProducto);
+
+      const boton = document.getElementById(`boton${producto.id}`);
+      boton.addEventListener("click", () => {
+        agregarAlCarrito(producto.id);
+        console.log("Producto agregado al carrito");
+      });
+    });
+  } else {
+    contenedorProductos.innerHTML = swal("","No se encontraron resultados","error");
+  }
+};
+
+/*--------ORDEN------------*/
+
+const ordenAlfabeticoBtn = document.getElementById("ordenAlfabetico");
+ordenAlfabeticoBtn.addEventListener("click", () => {
+  datos.sort((a, b) => (a.detalle > b.detalle ? 1 : -1));
+  mostrarProductos(datos);
+});
+
+const ordenPrecioBtn = document.getElementById("ordenPrecio");
+ordenPrecioBtn.addEventListener("click", () => {
+  datos.sort((a, b) => a.precio - b.precio);
+  mostrarProductos(datos);
+});
+
+
+const mostrarProductos = (productos) => {
+  contenedorProductos.innerHTML = "";
+  productos.forEach((producto) => {
+    const divProducto = document.createElement("div");
+    divProducto.classList.add("card", "col-xl-3", "col-xl-3", "col-xl-3");
+    divProducto.innerHTML += `<div>
+          <img src="${producto.imagen}" class="card-img-top img-fluid py-3">
+          <div class="card-body">
+            <h3 class="card-title">${producto.detalle}</h3>
+            <h4 class="card-text"> Precio: $ ${producto.precio} </h4>
+            <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
+          </div>
+        <div>`;
+    contenedorProductos.appendChild(divProducto);
+
+    const boton = document.getElementById(`boton${producto.id}`);
+    boton.addEventListener("click", () => {
+      agregarAlCarrito(producto.id);
+      console.log("Producto agregado al carrito");
+    });
+  });
+};
+
